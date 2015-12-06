@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif:700,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300');
+
+$family: 'Arial', sans-serif;
+
+$base: 12px;
+$h1: 1.80 * $base;
+$h2: 1.60 * $base;
+$h3: 1.40 * $base;
+$h4: 1.25 * $base;
+
+$lineheight: 1.8;
+
+html, body {
+  font-family: $family;
+  font-size: $base;
+  line-height: $lineheight;
+  background: rgb(128, 128, 128);
+  text-align: center;
+}
+
+progress {
+  margin: 20px;
+  width: 50%;
+}
+
+.test-options {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .test-option {
+    background: rgb(240, 240, 240);
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 60px;
+    width: 40%;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: rgb(255, 255, 255);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    &:nth-child(2) {
+      margin-left: 0;
+    }
+  }
+
+  .optionA {
+    font-family: 'Arial', sans-serif;
+  }
+
+  .optionB {
+    font-family: 'Droid Serif', serif;
+  }
+}
+
+h1,h2,h3,h4 {
+  font-weight: bold;
+}
+
+h1 { font-size: $h1; }
+h2 { font-size: $h2; }
+h3 { font-size: $h3; }
+h4 { font-size: $h4; margin-bottom: 2vh; }
+
+.paragraphs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2vh;
+
+  section { margin-right: 2vw; width: 50%; }
+  .A { font-size: 0.95rem; }
+  .B { font-size: 0.90rem; }
+  .C { font-size: 0.85rem; }
+  .D { font-size: 0.80rem; }
+  .E { font-size: 0.75rem; }
+  .F { font-size: 0.70rem; }
+}
+
+b {
+  font-weight: 900;
+}
+
+a {
+  border-bottom: 2px solid black;
+  margin-right: 0.5vw;
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 1vh 0;
+  li {
+
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+  margin: 1vh 0;
+  li {
+
+  }
+}
