@@ -1,0 +1,22 @@
+{
+  "name": "clotho",
+  "homepage": "https://github.com/GuidoSchmidt/clotho",
+  "authors": [
+    "Guido Schmidt <guido.schmidt.2912@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "css-reset": "~2.5.1"
+  }
+}
