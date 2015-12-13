@@ -1,0 +1,31 @@
+{
+  "name": "clotho",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "watchify": "^3.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify js/jsx/App.jsx -o js/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "watch": "watchify js/jsx/App.jsx -o js/bundle.js -t [ babelify --presets [ es2015 react ] ]"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuidoSchmidt/clotho.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuidoSchmidt/clotho/issues"
+  },
+  "homepage": "https://github.com/GuidoSchmidt/clotho#readme"
+}
