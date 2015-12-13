@@ -1,0 +1,10 @@
+# OS X .DS_Store
+.DS_Store
+
+# bower & npm
+/bower_components
+/node_modules
+
+# SCSS
+.sass-cache/
+css/
