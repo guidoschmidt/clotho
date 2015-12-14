@@ -1,6 +1,9 @@
 import React from 'react'
+import $ from 'jquery'
+
 
 class Option extends React.Component {
+
   handleClick() {
     const { name, config } = this.props;
     var { handleSelection } = this.props;
@@ -14,7 +17,6 @@ class Option extends React.Component {
       <div
         className="test-option"
         onClick={this.handleClick.bind(this)}>
-        {config.html}
       </div>
     )
   }

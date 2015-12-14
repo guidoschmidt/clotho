@@ -6,7 +6,6 @@ import Finished from './Finished.jsx'
 import Start from './Start.jsx'
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
