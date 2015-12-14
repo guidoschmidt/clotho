@@ -119,3 +119,36 @@ ol {
 
   }
 }
+
+// Option presenter
+@keyframes fadeIn {
+  to {opacity: 1.0;}
+}
+
+.option-presenter {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-duration: 0.25s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+// Start
+.start {
+  background: rgb(240, 240, 240);
+  font-size: 1.5rem;
+  margin: 15px;
+  padding: 4vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+// Finish
+.finish {
+  background: rgb(240, 240, 240);
+  font-size: 1.5rem;
+  margin: 15px;
+  padding: 4vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}

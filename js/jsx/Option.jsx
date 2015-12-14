@@ -1,11 +1,20 @@
 import React from 'react'
 
 class Option extends React.Component {
+  handleClick() {
+    const { name, config } = this.props;
+    var { handleSelection } = this.props;
+
+    handleSelection(name, config);
+  }
+
   render() {
-    const { content } = this.props;
+    const { config } = this.props;
     return (
-      <div className="test-option">
-        {content}
+      <div
+        className="test-option"
+        onClick={this.handleClick.bind(this)}>
+        {config.html}
       </div>
     )
   }
