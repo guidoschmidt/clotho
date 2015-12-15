@@ -137,17 +137,17 @@ var App = (function (_React$Component) {
     _this.state = {
       currentConfig: undefined,
       configSequence: [{
-        instructions: "Test 1",
-        A: {},
-        B: {}
+        instructions: "Which typeface is more legible?",
+        html: '/html/typography/headings.html',
+        options: ['typeface-arial', 'typeface-sourcecode']
       }, {
-        instructions: "Test 2",
-        A: {},
-        B: {}
+        instructions: "Which typeface better suited for representing scientific numbers?",
+        html: '/html/typography/numbers.html',
+        options: ['typeface-arial', 'typeface-sourcecode']
       }, {
-        instructions: "Test 3",
-        A: {},
-        B: {}
+        instructions: "Which typeface is more legible?",
+        html: '/html/typography/text.html',
+        options: ['typeface-sourcecode', 'typeface-arial']
       }],
       finished: [],
       showFinished: false
@@ -179,6 +179,10 @@ var App = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      // Progress bar value
+      var progress = (this.state.finished.length - 1) / (this.state.finished.length + this.state.configSequence.length);
+      progress = this.state.showFinished ? progress + 1 : progress;
+      // Which component should be displayed
       var display;
       if (this.state.currentConfig == undefined) {
         display = _react2.default.createElement(_Start2.default, { onClick: this.handleClickNext.bind(this) });
@@ -187,10 +191,12 @@ var App = (function (_React$Component) {
           config: this.state.currentConfig,
           evaluateSelection: this.handleOptionSelection.bind(this) });
       }
+
       return _react2.default.createElement(
         'div',
         { className: 'app-wrapper' },
-        display
+        display,
+        _react2.default.createElement('progress', { value: progress })
       );
     }
   }]);
@@ -358,12 +364,50 @@ var Option = (function (_React$Component) {
       handleSelection(name, config);
     }
   }, {
-    key: 'render',
-    value: function render() {
+    key: 'loadHTMLResource',
+    value: function loadHTMLResource(id) {
       var config = this.props.config;
 
+      _jquery2.default.ajax({
+        url: config.html,
+        cache: false
+      }).success(function (data) {
+        (0, _jquery2.default)('#' + id).append(data);
+      }).error(function (xhr, status, err) {
+        console.error(err);
+      });
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var name = this.props.name;
+
+      var id = 'mount-' + name;
+      this.loadHTMLResource(id);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {
+      var name = this.props.name;
+
+      var id = 'mount-' + name;
+      (0, _jquery2.default)('#mount-A').empty();
+      (0, _jquery2.default)('#mount-B').empty();
+      this.loadHTMLResource(id);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props;
+      var config = _props2.config;
+      var name = _props2.name;
+
+      var id = 'mount-' + name;
+      var classNames = name == 'A' ? config.options[0] : config.options[1];
+      classNames += ' test-option';
       return _react2.default.createElement('div', {
-        className: 'test-option',
+        className: classNames,
+        id: id,
         onClick: this.handleClick.bind(this) });
     }
   }]);
@@ -415,10 +459,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var OptionPresenter = (function (_React$Component) {
   _inherits(OptionPresenter, _React$Component);
 
-  function OptionPresenter() {
+  function OptionPresenter(props) {
     _classCallCheck(this, OptionPresenter);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(OptionPresenter).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OptionPresenter).call(this, props));
+
+    _this.state = {
+      visible: true
+    };
+    return _this;
   }
 
   _createClass(OptionPresenter, [{
@@ -429,24 +478,44 @@ var OptionPresenter = (function (_React$Component) {
       evaluateSelection(name, config);
     }
   }, {
+    key: 'changeState',
+    value: function changeState() {
+      this.setState({ visible: true });
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {
+      this.setState({ visible: false });
+      setTimeout(this.changeState.bind(this), 500);
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var config = this.props.config;
+      var _props = this.props;
+      var config = _props.config;
+      var progress = _props.progress;
+
+      var classNames = this.state.visible ? 'visible' : 'invisible';
+      classNames += ' option-presenter';
+
+      var options = ['A', 'B'];
+      var optionNameOne = Math.random() <= 0.5 ? options.splice(0, 1) : options.splice(1, 1);
+      var optionNameTwo = options[0];
 
       return _react2.default.createElement(
         'div',
-        { className: 'option-presenter' },
+        { className: classNames },
         _react2.default.createElement(_Instructions2.default, { key: 'instructions', text: config.instructions }),
         _react2.default.createElement(
           'div',
           { className: 'test-options', key: 'options' },
           _react2.default.createElement(_Option2.default, {
-            name: 'A',
-            config: config.A,
+            name: optionNameOne,
+            config: config,
             handleSelection: this.optionSelected.bind(this) }),
           _react2.default.createElement(_Option2.default, {
-            name: 'B',
-            config: config.B,
+            name: optionNameTwo,
+            config: config,
             handleSelection: this.optionSelected.bind(this) })
         )
       );
@@ -501,6 +570,46 @@ var Start = (function (_React$Component) {
         { className: "start" },
         _react2.default.createElement(
           "h1",
+          null,
+          "Evaluation"
+        ),
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Thesis Title"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        ),
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Instructions"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "You will be asked one question and two options to choose from. Please decide for one and click on it.",
+          _react2.default.createElement(
+            "li",
+            null,
+            "Color perception"
+          ),
+          _react2.default.createElement(
+            "li",
+            null,
+            "Legibility of typefaces"
+          ),
+          _react2.default.createElement(
+            "li",
+            null,
+            "Visual perception"
+          )
+        ),
+        _react2.default.createElement(
+          "button",
           { onClick: onClick },
           "Start"
         )
