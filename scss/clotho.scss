@@ -26,50 +26,6 @@ progress {
   width: 50%;
 }
 
-.test-instructions {
-  background: rgb(240, 240, 240);
-  font-size: 1.5rem;
-  margin: 15px;
-  padding: 4vh;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-}
-
-.test-options {
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  .test-option {
-    background: rgb(240, 240, 240);
-    border-radius: 2px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin: 15px;
-    padding: 60px;
-    width: 40%;
-    transition: all 0.15s ease;
-
-    &:hover {
-      background: rgb(255, 255, 255);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    &:nth-child(2) {
-      margin-left: 0;
-    }
-  }
-
-  .optionA {
-    font-family: 'Arial', sans-serif;
-  }
-
-  .optionB {
-    font-family: 'Droid Serif', serif;
-  }
-}
-
 h1,h2,h3,h4 {
   font-weight: bold;
 }
@@ -121,16 +77,69 @@ ol {
 }
 
 // Option presenter
-@keyframes fadeIn {
-  to {opacity: 1.0;}
+@keyframes fadeIn { to {opacity: 1.0;} }
+
+.visible {
+  opacity: 0.0;
+  animation: fadeIn ease-in 1;
+  animation-duration: 0.25s;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+.invisible {
+  opacity: 0.0;
 }
 
 .option-presenter {
-  opacity: 0;
-  animation: fadeIn ease-in 1;
-  animation-duration: 0.25s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+
+}
+
+// Option presenter instructions
+.test-instructions {
+  background: rgb(240, 240, 240);
+  color: rgb(140, 140, 140);
+  font-size: 1.5rem;
+  margin: 15px;
+  padding: 4vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+// Option presenter options
+.test-options {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .test-option {
+    background: rgb(240, 240, 240);
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 60px;
+    width: 40%;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: rgb(255, 255, 255);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    &:nth-child(2) {
+      margin-left: 0;
+    }
+  }
+
+  .optionA {
+    font-family: 'Arial', sans-serif;
+  }
+
+  .optionB {
+    font-family: 'Droid Serif', serif;
+  }
 }
 
 // Start
@@ -141,6 +150,17 @@ ol {
   padding: 4vh;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
+
+  button {
+    border: 0;
+    padding: 2vh 2vw;
+    font-size: 1.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background: rgb(242, 203, 136)();
+    }
+  }
 }
 
 // Finish
@@ -151,4 +171,22 @@ ol {
   padding: 4vh;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
+}
+
+// Progress bar
+progress {
+  transition: all 0.5s ease;
+  position: fixed;
+  bottom: 20px;
+  width: 20%;
+  left: 40%;
+}
+
+// Configurations
+.typeface-arial {
+  font-family: Arial, sans-serif;
+}
+
+.typeface-sourcecode {
+  font-family: Source Code Pro, sans-serif;
 }
