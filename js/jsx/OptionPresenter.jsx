@@ -6,25 +6,48 @@ import Option from './Option.jsx'
 import Paragraphs from '../fonts-textblocks.jsx'
 
 class OptionPresenter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: true
+    }
+  }
+
   optionSelected(name, config) {
     var { evaluateSelection } = this.props;
     evaluateSelection(name, config);
   }
 
+  changeState() {
+    this.setState({visible: true});
+  }
+
+  componentWillReceiveProps() {
+    this.setState({visible: false});
+    setTimeout(this.changeState.bind(this), 500);
+  }
+
   render() {
-    const { config } = this.props;
+    const { config, progress } = this.props;
+
+    var classNames = this.state.visible ? 'visible' : 'invisible';
+    classNames += ' option-presenter'
+
+    var options = ['A', 'B'];
+    var optionNameOne = Math.random() <= 0.5 ? options.splice(0, 1) : options.splice(1, 1);
+    var optionNameTwo = options[0];
 
     return (
-      <div className="option-presenter" >
+      <div className={classNames} >
           <Instructions key="instructions" text={config.instructions} />
           <div className="test-options" key="options">
             <Option
-              name="A"
-              config={config.A}
+              name={optionNameOne}
+              config={config}
               handleSelection={this.optionSelected.bind(this)} />
             <Option
-              name="B"
-              config={config.B}
+              name={optionNameTwo}
+              config={config}
               handleSelection={this.optionSelected.bind(this)} />
           </div>
       </div>

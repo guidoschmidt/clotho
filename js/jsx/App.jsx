@@ -13,19 +13,19 @@ class App extends React.Component {
       currentConfig: undefined,
       configSequence: [
         {
-          instructions: "Test 1",
-          A: {},
-          B: {}
+          instructions: "Which typeface is more legible?",
+          html: '/html/typography/headings.html',
+          options: ['typeface-arial', 'typeface-sourcecode']
         },
         {
-          instructions: "Test 2",
-          A: {},
-          B: {}
+          instructions: "Which typeface better suited for representing scientific numbers?",
+          html: '/html/typography/numbers.html',
+          options: ['typeface-arial', 'typeface-sourcecode']
         },
         {
-          instructions: "Test 3",
-          A: {},
-          B: {}
+          instructions: "Which typeface is more legible?",
+          html: '/html/typography/text.html',
+          options: ['typeface-sourcecode', 'typeface-arial']
         }
       ],
       finished: [],
@@ -53,6 +53,11 @@ class App extends React.Component {
   }
 
   render() {
+    // Progress bar value
+    var progress = (this.state.finished.length - 1) /
+    (this.state.finished.length + this.state.configSequence.length);
+    progress = this.state.showFinished ? progress+1 : progress;
+    // Which component should be displayed
     var display
     if(this.state.currentConfig == undefined) {
       display = <Start onClick={this.handleClickNext.bind(this)} />;
@@ -63,9 +68,11 @@ class App extends React.Component {
         config={this.state.currentConfig}
         evaluateSelection={this.handleOptionSelection.bind(this)}/>
     }
+
     return (
       <div className="app-wrapper">
         {display}
+        <progress value={progress}/>
       </div>
     )
   }
