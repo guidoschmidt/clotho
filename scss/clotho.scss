@@ -1,6 +1,8 @@
+// sans-serif
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,500,600,700');
-@import url('https://fonts.googleapis.com/css?family=Droid+Serif:700,400');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+// serif
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif:700,400');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300');
 
 $family: 'Arial', sans-serif;
@@ -189,4 +191,19 @@ progress {
 
 .typeface-sourcecode {
   font-family: Source Code Pro, sans-serif;
+}
+
+// User survey
+.user-survey {
+  background: rgb(240, 240, 240);
+  font-size: 1.5rem;
+  margin: 15px;
+  padding: 4vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+
+  form {
+    text-align: left;
+    width: 80vw;
+  }
 }
