@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Finished extends React.Component {
+class Finish extends React.Component {
   render() {
     return (
       <div className="finish">
@@ -12,11 +12,11 @@ class Finished extends React.Component {
     )
   }
 }
-Finished.defaultProps = {
+Finish.defaultProps = {
 
 }
-Finished.propTypes = {
+Finish.propTypes = {
 
 }
 
-export default Finished
+export default Finish

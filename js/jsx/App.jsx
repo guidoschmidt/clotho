@@ -2,73 +2,94 @@ import React from 'react'
 import $ from 'jquery'
 import { render } from 'react-dom'
 // Custom components
-import OptionPresenter from './OptionPresenter.jsx'
-import Finished from './Finished.jsx'
 import Start from './Start.jsx'
+import OptionPresenter from './OptionPresenter.jsx'
+import Finish from './Finish.jsx'
+import UserSurvey from './UserSurvey.jsx'
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      order: ['start', 'survey', 'options', 'finish'],
+      currentConfig: undefined,
+      configSequence: [],
+      finished: [],
+      progress: 0,
+      showFinished: false
+    };
 
-    const configSequence = $.ajax({
+    $.ajax({
       url: '/js/config.json',
       cache: true,
       dataType: 'json'
     }).success(data => {
-      return data;
+      this.setState({configSequence: data});
     }).error((xhr, status, err) => {
       console.error(err);
     });
-
-    this.state = {
-      currentConfig: undefined,
-      configSequence: configSequence,
-      finished: [],
-      showFinished: false
-    };
   }
 
   handleClickNext() {
+    this.setState(state => {
+      state.order.splice(0, 1);
+      state.progress++;
+    });
+    if(this.state.order[1] == 'options') {
+      this.handlePresentNextOption();
+    }
+  }
+
+  handlePresentNextOption() {
     if(this.state.configSequence.length == 0) {
-      this.setState({showFinished: true});
+      this.handleClickNext();
       return;
     }
     var randomSequenceId = Math.round( Math.random() * this.state.configSequence.length-1 );
     this.setState(state => {
+      state.progress++;
       state.currentConfig = state.configSequence.splice(randomSequenceId, 1)[0];
       state.finished.push(state.currentConfig);
     });
   }
 
   handleOptionSelection(name, config) {
-    console.log( "Option " + name + " selected." );
-    console.log( config );
-    this.handleClickNext();
-    mixpanel.track(name);
+    mixpanel.track( String(name) );
+    this.handlePresentNextOption();
   }
 
   render() {
-    // Progress bar value
-    var progress = (this.state.finished.length - 1) /
-    (this.state.finished.length + this.state.configSequence.length);
-    progress = this.state.showFinished ? progress+1 : progress;
-    // Which component should be displayed
-    var display
-    if(this.state.currentConfig == undefined) {
-      display = <Start onClick={this.handleClickNext.bind(this)} />;
+    // Switch between components
+    var render;
+    switch(this.state.order[0]) {
+      case 'start':
+        render = <Start onClick={this.handleClickNext.bind(this)} />;
+        break;
+      case 'survey':
+        render = (
+          <UserSurvey onClick={this.handleClickNext.bind(this)} />
+        );
+        break;
+      case 'options':
+        render = (
+          <OptionPresenter
+            config={this.state.currentConfig}
+            evaluateSelection={this.handleOptionSelection.bind(this)} />
+        );
+        break;
+      case 'finish':
+        render = <Finish />;
+        break;
     }
-    else {
-      display = this.state.showFinished ? <Finished /> :
-      <OptionPresenter
-        config={this.state.currentConfig}
-        evaluateSelection={this.handleOptionSelection.bind(this)}/>
-    }
+
+    let progress = this.state.progress;
+    console.log( progress );
 
     return (
       <div className="app-wrapper">
-        {display}
-        <progress value={progress}/>
+        {render}
+        <progress value={progress} max="6" />
       </div>
     )
   }

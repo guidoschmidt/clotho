@@ -2,8 +2,7 @@ import React from 'react'
 // Custom components
 import Instructions from './Instructions.jsx'
 import Option from './Option.jsx'
-// HTML
-import Paragraphs from '../fonts-textblocks.jsx'
+
 
 class OptionPresenter extends React.Component {
   constructor(props) {
@@ -34,8 +33,8 @@ class OptionPresenter extends React.Component {
     classNames += ' option-presenter'
 
     var options = ['A', 'B'];
-    var optionNameOne = Math.random() <= 0.5 ? options.splice(0, 1) : options.splice(1, 1);
-    var optionNameTwo = options[0];
+    var optionNameOne = String(Math.random() <= 0.5 ? options.splice(0, 1) : options.splice(1, 1));
+    var optionNameTwo = String(options[0]);
 
     return (
       <div className={classNames} >
