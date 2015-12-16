@@ -8,3 +8,6 @@
 # SCSS
 .sass-cache/
 css/
+
+# browserify bundle
+js/bundle.js

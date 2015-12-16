@@ -1,0 +1,17 @@
+[
+  {
+    "instructions": "Which typeface is more legible?",
+    "html": "/html/typography/headings.html",
+    "options": ["typeface-arial", "typeface-sourcecode"]
+  },
+  {
+    "instructions": "Which typeface better suited for representing scientific numbers?",
+    "html": "/html/typography/numbers.html",
+    "options": ["typeface-arial", "typeface-sourcecode"]
+  },
+  {
+    "instructions": "Which typeface is more legible?",
+    "html": "/html/typography/text.html",
+    "options": ["typeface-sourcecode", "typeface-arial"]
+  }
+]

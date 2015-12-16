@@ -1,4 +1,5 @@
 import React from 'react'
+import $ from 'jquery'
 import { render } from 'react-dom'
 // Custom components
 import OptionPresenter from './OptionPresenter.jsx'
@@ -9,25 +10,20 @@ import Start from './Start.jsx'
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    const configSequence = $.ajax({
+      url: '/js/config.json',
+      cache: true,
+      dataType: 'json'
+    }).success(data => {
+      return data;
+    }).error((xhr, status, err) => {
+      console.error(err);
+    });
+
     this.state = {
       currentConfig: undefined,
-      configSequence: [
-        {
-          instructions: "Which typeface is more legible?",
-          html: '/html/typography/headings.html',
-          options: ['typeface-arial', 'typeface-sourcecode']
-        },
-        {
-          instructions: "Which typeface better suited for representing scientific numbers?",
-          html: '/html/typography/numbers.html',
-          options: ['typeface-arial', 'typeface-sourcecode']
-        },
-        {
-          instructions: "Which typeface is more legible?",
-          html: '/html/typography/text.html',
-          options: ['typeface-sourcecode', 'typeface-arial']
-        }
-      ],
+      configSequence: configSequence,
       finished: [],
       showFinished: false
     };
