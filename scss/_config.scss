@@ -1,0 +1,72 @@
+// font-import
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Roboto+Slab:400,100,300,700|Droid+Serif:400,400italic,700,700italic|Source+Code+Pro:400,200,300,500,600,700,900|Roboto+Condensed:400,300,300italic,400italic,700,700italic|Ubuntu:400,300italic,300,400italic,500,500italic,700,700italic&subset=latin,greek,latin-ext');
+
+
+//--- Configurations ---
+
+// Typefaces
+.typeface-opensans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.typeface-robotoslab {
+  font-family: 'Roboto Slab', serif;
+}
+
+.typeface-droidserif {
+  font-family: 'Droid Serif', serif;
+}
+
+.typeface-sourcecodepro {
+  font-family: 'Source Code Pro', ;
+}
+
+.typeface-robotocondensed {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.typeface-ubtunu {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+// Sizes
+.x-large { font-size: 16px; }
+
+.large { font-size: 14px; }
+
+.middle { font-size: 12px; }
+
+.small { font-size: 10px; }
+
+.x-small { font-size: 8px; }
+
+// Layout
+.config-row {
+  display: flex;
+  flex-direction: row;
+
+  .left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+table {
+  width: 100%;
+
+  tr {
+    width: 100%;
+  }
+
+  td {
+    width: 30%;
+  }
+}

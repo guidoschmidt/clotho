@@ -6,7 +6,5 @@ may currently not be functioning. Please be patient - It's finished when it's do
 ## Build && Run
 
 ```
-npm i && bower i
-npm run build
 npm start
 ```

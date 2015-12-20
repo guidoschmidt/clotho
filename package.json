@@ -16,7 +16,7 @@
     "watchify": "^3.6.1"
   },
   "scripts": {
-    "start": "http-server -p 4200 -o",
+    "start": "npm i && bower i && npm run build && npm run css && http-server -p 4200 -o",
     "css": "sass scss/clotho.scss css/clotho.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify js/jsx/App.jsx -o js/bundle.js -t [ babelify --presets [ es2015 react ] ]",
