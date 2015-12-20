@@ -2,16 +2,21 @@
   {
     "instructions": "Which typeface is more legible?",
     "html": "/html/typography/headings.html",
-    "options": ["typeface-arial", "typeface-sourcecode"]
+    "options": ["typeface-ubtunu", "typeface-sourcecodepro"]
   },
   {
     "instructions": "Which typeface better suited for representing scientific numbers?",
     "html": "/html/typography/numbers.html",
-    "options": ["typeface-arial", "typeface-sourcecode"]
+    "options": ["typeface-ubtunu", "typeface-robotoslab"]
   },
   {
     "instructions": "Which typeface is more legible?",
     "html": "/html/typography/text.html",
-    "options": ["typeface-sourcecode", "typeface-arial"]
+    "options": ["typeface-sourcecodepro", "typeface-ubtunu"]
+  },
+  {
+    "instructions": "Which typeface is more legible?",
+    "html": "/html/typography/entire.html",
+    "options": ["typeface-sourcecodepro", "typeface-opensans"]
   }
 ]

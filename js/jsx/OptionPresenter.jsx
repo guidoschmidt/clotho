@@ -29,7 +29,7 @@ class OptionPresenter extends React.Component {
   render() {
     const { config, progress } = this.props;
 
-    var classNames = this.state.visible ? 'visible' : 'invisible';
+    var classNames = this.state.visible ? 'clotho-visible' : 'clotho-invisible';
     classNames += ' option-presenter'
 
     var options = ['A', 'B'];
