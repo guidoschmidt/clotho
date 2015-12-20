@@ -1,5 +1,5 @@
 import React from 'react'
-import swla from 'sweetalert'
+import 'sweetalert'
 
 class UserSurvey extends React.Component {
   handleClickNext() {
@@ -20,7 +20,7 @@ class UserSurvey extends React.Component {
 
     }
 
-    if(job.value == '') { swal("Error!", "Please give your job title"); }
+    if(job.value == '') { swal("Error!", "Please type in your job title"); }
     else {
       onClick();
     }
@@ -51,13 +51,13 @@ class UserSurvey extends React.Component {
               id="age" type="range" min="10" max="100" defaultValue="10" step="5" ref="age"
               onChange={this.handleAgeChange.bind(this)}/>
 
-            <hr />
+            <hr className="survey-hr"/>
 
             <h3>What is your profession/job title?</h3>
             <label>Job Title:</label>
             <input ref="job" type="text" />
 
-            <hr />
+            <hr className="survey-hr"/>
 
             <h3>Do you work in a clinical environment?</h3>
             <select ref="clinical">

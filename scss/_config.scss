@@ -5,28 +5,33 @@
 //--- Configurations ---
 
 // Typefaces
-.typeface-opensans {
-  font-family: 'Open Sans', sans-serif;
-}
-
-.typeface-robotoslab {
-  font-family: 'Roboto Slab', serif;
-}
-
 .typeface-droidserif {
   font-family: 'Droid Serif', serif;
 }
-
-.typeface-sourcecodepro {
-  font-family: 'Source Code Pro', ;
+.typeface-opensans {
+  font-family: 'Open Sans', sans-serif;
 }
-
 .typeface-robotocondensed {
   font-family: 'Roboto Condensed', sans-serif;
 }
-
+.typeface-robotoslab {
+  font-family: 'Roboto Slab', serif;
+}
+.typeface-sourcecodepro {
+  font-family: 'Source Code Pro', ;
+}
 .typeface-ubtunu {
   font-family: 'Ubuntu', sans-serif;
+}
+
+// Typeface coloring
+.black-on-white {
+  background: white;
+  color: black;
+}
+.white-on-black {
+  background: black;
+  color: white;
 }
 
 // Sizes

@@ -5,7 +5,7 @@
     "options": ["typeface-ubtunu", "typeface-sourcecodepro"]
   },
   {
-    "instructions": "Which typeface better suited for representing scientific numbers?",
+    "instructions": "Which typeface is better suited for representing scientific numbers?",
     "html": "/html/typography/numbers.html",
     "options": ["typeface-ubtunu", "typeface-robotoslab"]
   },

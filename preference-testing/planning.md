@@ -1,7 +1,7 @@
 ## Typography
 
 **Introduction:**
-- How legible is the font on your screen?
+- How legible is the font åon your screen?
 - How distinguishable is bold to normal fontweight?
 - How pleasant is the typeface to your eye while reading?
 - How distinguishable are numbers?
@@ -18,18 +18,24 @@ Test-Configurations:
 
 **Typeface Selection:**
 
-1. Open Sans
-2. Roboto Slab
+1. Droid Serif
+2. Open Sans
 3. Roboto Condensed
-4. Droid Serif
+4. Roboto Slab
 5. Source Code Pro
-6. Source Sans Pro
-7. Ubuntu
-
+6. Ubuntu
 
 ---
 
 ## Color
-- Red/green?
-- Color symbolization?
--
+
+1. Objects such as a liver, a tumor
+2. Things such as a computer tomography, an ultrasound examination, an x-ray image
+3. Everything is okay
+4. There might be something wrong
+5. An error occurred
+6. Nothing is okay
+7. No error occurred
+8. Something that can be true or false
+9. A number
+10.

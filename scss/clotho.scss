@@ -1,7 +1,7 @@
 // Import configurations
 @import 'config';
 
-$base: 12px;
+$base: 10px;
 $h1: 1.80 * $base;
 $h2: 1.60 * $base;
 $h3: 1.40 * $base;
@@ -10,7 +10,7 @@ $h4: 1.25 * $base;
 $lineheight: 1.8;
 
 html, body {
-  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
   font-family: Arial, sans-serif;
   font-size: $base;
   line-height: $lineheight;
@@ -27,7 +27,7 @@ h1,h2,h3,h4 {
   font-weight: bold;
 }
 
-h1 { font-size: $h1; }
+h1 { font-size: 20px; }
 h2 { font-size: $h2; }
 h3 { font-size: $h3; }
 h4 { font-size: $h4; margin-bottom: 2vh; }
@@ -57,8 +57,8 @@ a {
 
 ul {
   list-style-type: disc;
-  list-style-position: inside;
   margin: 1vh 0;
+  list-style-position: outside;
   li {
 
   }
@@ -66,19 +66,27 @@ ul {
 
 ol {
   list-style-type: decimal;
-  list-style-position: inside;
   margin: 1vh 0;
   li {
 
   }
 }
 
-
-
+.agreement {
+  margin: 4vh 0;
+}
 
 .row {
   display: flex;
   flex-direction: row;
+  text-align: left;
+  align-items: center;
+
+  img {
+    margin: 0 2vh;
+    height: 100px;
+    width: auto;
+  }
 
   .left {
     width: 50%;
@@ -86,10 +94,6 @@ ol {
     margin-right: 3vw;
     display: flex;
     align-items: center;
-
-    img {
-      margin: 0 2vh;
-    }
   }
   .right {
     width: 50%;
@@ -104,6 +108,10 @@ ol {
   font-size: 2rem;
 }
 
+.description {
+  text-align: left !important;
+}
+
 hr {
   margin: 0 auto;
   margin-top: 3vh;
@@ -112,6 +120,15 @@ hr {
   border: 0;
   border-bottom: 6px solid rgba(134, 134, 134, 0.1);
   width: 20%;
+}
+
+.survey-hr {
+  border-radius: 3px !important;
+  border: 0 !important;
+  text-align: left;
+  margin-left: 0 !important;
+  border-bottom: 3px solid rgba(134, 134, 134, 0.1) !important;
+  width: 60% !important;
 }
 
 input[type=range] {
@@ -222,8 +239,6 @@ button {
 // Progress bar
 progress {
   transition: all 0.5s ease;
-  position: fixed;
-  bottom: 20px;
   width: 20%;
   left: 40%;
 }
@@ -258,11 +273,15 @@ progress {
     label {
       font-size: 14px;
       margin-right: 1vw;
-      font-weight: bold;
     }
 
     input[type=text] {
       padding: 6px;
     }
   }
+}
+
+// Colors
+.red {
+  color: rgb(207, 0, 21);
 }
