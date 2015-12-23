@@ -6,6 +6,7 @@ import Start from './Start.jsx'
 import OptionPresenter from './OptionPresenter.jsx'
 import Finish from './Finish.jsx'
 import UserSurvey from './UserSurvey.jsx'
+import configFromFile from '../../config.json';
 
 
 class App extends React.Component {
@@ -14,21 +15,12 @@ class App extends React.Component {
     this.state = {
       order: ['start', 'survey', 'options', 'finish'],
       currentConfig: undefined,
-      configSequence: [],
+      configSequence: configFromFile,
       finished: [],
       progress: 0,
+      testLength: configFromFile.length,
       showFinished: false
     };
-
-    $.ajax({
-      url: '/js/config.json',
-      cache: true,
-      dataType: 'json'
-    }).success(data => {
-      this.setState({configSequence: data});
-    }).error((xhr, status, err) => {
-      console.error(err);
-    });
   }
 
   handleClickNext() {
@@ -88,8 +80,8 @@ class App extends React.Component {
 
     return (
       <div className="app-wrapper">
+        <progress value={progress} max={this.state.testLength + 3} />
         {render}
-        <progress value={progress} max="6" />
       </div>
     )
   }

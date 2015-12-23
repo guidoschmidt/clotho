@@ -4,6 +4,26 @@
 
 //--- Configurations ---
 
+// Colors
+.color {
+  height: 60vh;
+  width: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.red > .color { background: #FF0000; }
+.green > .color { background: #49C500; }
+.orange > .color { background: #FFD200; }
+.black > .color { background: #363636; }
+.white > .color { background: #d3d4ca; }
+.blue > .color { background: #004AC5; }
+.aqua > .color { background: #00C5C4; }
+.purple > .color { background: #8900C5; }
+.fleshA > .color { background: #D4A6BE; }
+.fleshB > .color { background: #DCB493; }
+.fleshC > .color { background: #DC9593; }
+
 // Typefaces
 .typeface-droidserif {
   font-family: 'Droid Serif', serif;
@@ -66,6 +86,7 @@
 
 table {
   width: 100%;
+  margin-left: 2vw;
 
   tr {
     width: 100%;

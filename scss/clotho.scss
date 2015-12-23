@@ -52,7 +52,6 @@ b {
 
 a {
   border-bottom: 2px solid black;
-  margin-right: 0.5vw;
 }
 
 ul {
@@ -158,8 +157,8 @@ button {
 .clotho-visible {
   opacity: 0.0;
   animation: fadeIn cubic-bezier(.17,.67,.34,1) 1;
-  animation-duration: 0.1s;
-  animation-delay: 0.05s;
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
   animation-fill-mode: forwards;
 }
 
@@ -174,10 +173,13 @@ button {
 // Option presenter instructions
 .test-instructions {
   color: rgb(250, 250, 250);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 1.5rem;
   margin: 15px;
   padding: 4vh;
+
+  h1 {
+    font-size: 3rem;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  }
 }
 
 // Option presenter options
@@ -224,6 +226,10 @@ button {
   padding: 4vh;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
+
+  label {
+    margin-left: 1vw;
+  }
 }
 
 // Finish
@@ -281,7 +287,7 @@ progress {
   }
 }
 
-// Colors
-.red {
-  color: rgb(207, 0, 21);
+// Accentuation
+.important {
+  color: rgb(255, 92, 11);
 }

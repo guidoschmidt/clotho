@@ -1,0 +1,7 @@
+[
+  {
+    "instructions": "Which typeface is more legible?",
+    "html": "/html/typography/headings.html",
+    "options": ["typeface-ubtunu", "typeface-sourcecodepro"]
+  }
+]

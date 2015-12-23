@@ -1,9 +1,17 @@
-import React from 'react'
-import 'sweetalert'
+import React from 'react';
+import 'sweetalert';
 
 class Start extends React.Component {
-  render() {
+  handleClick(){
     const { onClick } = this.props;
+    if(!this.refs.agree.checked) {
+      swal('Error!', 'Please agree');
+    } else {
+      onClick();
+    }
+  }
+
+  render() {
     return (
       <div>
         <div className="start">
@@ -23,7 +31,7 @@ class Start extends React.Component {
               <h2>Instructions</h2>
               <p>
                 To find pleasing design decisions for the user interface, a set of color and typeface configurations will be presented to you. You will be asked one question about it and will get two options to choose from. You have to decide which fullfills the asked question better. Please give particular attention on the following aspects:
-                <ul className="red">
+                <ul className="important">
                   <li>
                     <b>Color perception:</b><br/>
                     How well does a color represent the asked property?<br/>
@@ -50,9 +58,14 @@ class Start extends React.Component {
             </p>
           </div>
           <hr />
-          <b className="agreement"><input type="checkbox"/> I read the instructions and agree on the collection of my data to fullfill the survey</b>
+          <b className="agreement">
+            <input id="agree" ref="agree" type="checkbox"/>
+            <label htmlFor="agree" className="important">
+              I have read the instructions and agree on the collection of my data to fullfill the survey
+            </label>
+          </b>
         </div>
-        <button onClick={onClick}>Start</button>
+        <button onClick={this.handleClick.bind(this)}>Start</button>
       </div>
     )
   }

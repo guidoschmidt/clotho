@@ -20,8 +20,8 @@
     "server": "http-server -p 4200 -o",
     "css": "sass scss/clotho.scss css/clotho.css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify js/jsx/App.jsx -o js/bundle.js -t [ babelify --presets [ es2015 react ] ]",
-    "watch": "watchify js/jsx/App.jsx -o js/bundle.js -t [ babelify --presets [ es2015 react ] ]"
+    "build": "browserify js/jsx/App.jsx -o js/bundle.js -t babelify",
+    "watch": "watchify js/jsx/App.jsx -o js/bundle.js -t babelify"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,9 @@
   "bugs": {
     "url": "https://github.com/GuidoSchmidt/clotho/issues"
   },
-  "homepage": "https://github.com/GuidoSchmidt/clotho#readme"
+  "homepage": "https://github.com/GuidoSchmidt/clotho#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "handlebars": "^4.0.5"
+  }
 }
