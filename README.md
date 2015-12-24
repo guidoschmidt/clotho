@@ -4,6 +4,8 @@
 
 This will be a simple design preference testing application developed for my master thesis.
 
+![Animated preview gif](preview.gif)
+
 ## Build && Run
 To install dependencies and run the app, type
 
