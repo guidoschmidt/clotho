@@ -15,7 +15,7 @@
     "watchify": "^3.6.1"
   },
   "scripts": {
-    "start": "npm i && bower i && npm run build && npm run css && http-server -p 4200 -o",
+    "start": "npm i && bower i && mkdir release/js && npm run build && npm run css && cd release/ && http-server -p 4200 -o",
     "server": "cd release && http-server -p 4200 -o",
     "css": "sass scss/clotho.scss release/css/clotho.css",
     "build": "browserify js/jsx/App.jsx -o release/js/bundle.js -t babelify",
