@@ -1,6 +1,9 @@
 # OS X .DS_Store
 .DS_Store
 
+# release
+/release/js
+
 # bower & npm
 /bower_components
 /node_modules
