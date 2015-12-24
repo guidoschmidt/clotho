@@ -1,5 +1,4 @@
 import React from 'react'
-import $ from 'jquery'
 import { render } from 'react-dom'
 // Custom components
 import Start from './Start.jsx'

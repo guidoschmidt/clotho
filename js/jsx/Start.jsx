@@ -31,21 +31,21 @@ class Start extends React.Component {
               <h2>Instructions</h2>
               <p>
                 To find pleasing design decisions for the user interface, a set of color and typeface configurations will be presented to you. You will be asked one question about it and will get two options to choose from. You have to decide which fullfills the asked question better. Please give particular attention on the following aspects:
-                <ul className="important">
-                  <li>
-                    <b>Color perception:</b><br/>
-                    How well does a color represent the asked property?<br/>
-                    which one do you associate with the given property?
-                  </li>
-                  <li>
-                    <b>Legibility and readability:</b><br/>
-                    How well can numbers and letters be distinguished at different sizes?
-                  </li>
-                  <li>
-                    <b>Visual perception:</b><br/>
-                  </li>
-                </ul>
               </p>
+              <ul className="important">
+                <li>
+                  <b>Color perception:</b><br/>
+                  How well does a color represent the asked property?<br/>
+                  which one do you associate with the given property?
+                </li>
+                <li>
+                  <b>Legibility and readability:</b><br/>
+                  How well can numbers and letters be distinguished at different sizes?
+                </li>
+                <li>
+                  <b>Visual perception:</b><br/>
+                </li>
+              </ul>
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 {
   "name": "clotho",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Simple configurable app for design preference testing",
   "main": "index.js",
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
@@ -9,7 +9,6 @@
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
     "http-server": "^0.8.5",
-    "jquery": "^2.1.4",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "sweetalert": "^1.1.3",
@@ -17,24 +16,23 @@
   },
   "scripts": {
     "start": "npm i && bower i && npm run build && npm run css && http-server -p 4200 -o",
-    "server": "http-server -p 4200 -o",
-    "css": "sass scss/clotho.scss css/clotho.css",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify js/jsx/App.jsx -o js/bundle.js -t babelify",
-    "watch": "watchify js/jsx/App.jsx -o js/bundle.js -t babelify"
+    "server": "cd release && http-server -p 4200 -o",
+    "css": "sass scss/clotho.scss release/css/clotho.css",
+    "build": "browserify js/jsx/App.jsx -o release/js/bundle.js -t babelify",
+    "release": "cp -r config.json bower_components node_modules release/ && npm run css && npm run build && npm run server",
+    "watch": "watchify js/jsx/App.jsx -o release/js/bundle.js -t babelify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GuidoSchmidt/clotho.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GuidoSchmidt/clotho/issues"
   },
   "homepage": "https://github.com/GuidoSchmidt/clotho#readme",
   "dependencies": {
-    "colors": "^1.1.2",
-    "handlebars": "^4.0.5"
+    "colors": "^1.1.2"
   }
 }

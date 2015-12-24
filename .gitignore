@@ -4,6 +4,8 @@
 # bower & npm
 /bower_components
 /node_modules
+release/bower_components
+release/node_modules
 
 # SCSS
 .sass-cache/
